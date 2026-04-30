@@ -31,9 +31,10 @@ while (true)
                 break;
             }
             // Maior polimorfismo já existente, todos os objetos implementam o metodo Cadastrar da sua maneira 
-            // e retornam ELES MESMOS na funcao para o cadastro
 
-            listaDeVeiculos.Adicionar(veiculo.Cadastrar());
+            veiculo.Cadastrar();
+
+            listaDeVeiculos.Adicionar(veiculo);
 
         }
         else if (opcaoMenuPrincipal == "2")

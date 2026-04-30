@@ -15,14 +15,12 @@ public abstract class DeMisto : VeiculoBase
         Outro = outro;
     }
 
-    public override VeiculoBase? Cadastrar()
+    public override void Cadastrar()
     {
         ObterDadosBase();
 
         System.Console.Write("Digite INFORMAÇÕES ADICIONAIS: ");
         Outro = Console.ReadLine();
-
-        return this; //aqui eu sei que esta sendo retornado um veiculo do tipo em especifico
 
     }
 

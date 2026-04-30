@@ -37,7 +37,7 @@ public abstract class VeiculoBase
         Valor = Convert.ToInt32(Console.ReadLine());
     }
 
-    public abstract VeiculoBase? Cadastrar();
+    public abstract void Cadastrar();
 
     public abstract string ListarDados();
 

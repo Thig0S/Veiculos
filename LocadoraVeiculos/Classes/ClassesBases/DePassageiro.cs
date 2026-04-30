@@ -15,14 +15,12 @@ public abstract class DePassageiro : VeiculoBase
         QuantidadePassageiros = quantidadePassageiros;
     }
 
-    public override VeiculoBase? Cadastrar()
+    public override void Cadastrar()
     {
         ObterDadosBase();
 
         System.Console.Write("Digite a QUANTIDADE DE PASSAGEIROS: ");
         QuantidadePassageiros = Convert.ToInt32(Console.ReadLine());
-
-        return this; //aqui eu sei que esta sendo retornado um veiculo do tipo em especifico
 
     }
 
