@@ -11,6 +11,8 @@
     <Folder Include="Classes\Carga\" />
     <Folder Include="Classes\Misto\" />
     <Folder Include="Classes\Passageiro\" />
+    <Folder Include="Classes\RepositorioVeiculos\" />
+    <Folder Include="Classes\Telas\" />
   </ItemGroup>
 
 </Project>

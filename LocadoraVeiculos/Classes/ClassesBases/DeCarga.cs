@@ -17,9 +17,15 @@ public abstract class DeCarga : VeiculoBase
         TipoCarga = tipoCarga;
     }
 
-    public override void Cadastrar(VeiculoBase v)
+    public override VeiculoBase? Cadastrar()
     {
-        throw new NotImplementedException();
+        ObterDadosBase();
+
+        System.Console.Write("Digite o TIPO DE CARGA: ");
+        TipoCarga = Console.ReadLine();
+
+        return this; //aqui eu sei que esta sendo retornado um veiculo do tipo em especifico
+
     }
 
     public override string ListarDados()

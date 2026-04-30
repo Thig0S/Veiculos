@@ -22,7 +22,22 @@ public abstract class VeiculoBase
         Valor = valor;
     }
 
-    public abstract void Cadastrar(VeiculoBase v);
+    public void ObterDadosBase()
+    {
+        System.Console.Write("Digite a MARCA: ");
+        Marca = Console.ReadLine();
+
+        System.Console.Write("Digite o MODELO: ");
+        Marca = Console.ReadLine();
+
+        System.Console.Write("Digite o ANO: ");
+        Ano = Convert.ToInt32(Console.ReadLine());
+
+        System.Console.Write("Digite o VALOR: ");
+        Valor = Convert.ToInt32(Console.ReadLine());
+    }
+
+    public abstract VeiculoBase? Cadastrar();
 
     public abstract string ListarDados();
 

@@ -5,26 +5,60 @@
 //!!!4 pilares da POO | Construtores | List veiculos | 
 
 using LocadoraVeiculos.Classes;
-using LocadoraVeiculos.Classes.Carga;
-using LocadoraVeiculos.Classes.Misto;
-using LocadoraVeiculos.Classes.Passageiro;
+using LocadoraVeiculos.Classes.RepositorioVeiculos;
+using LocadoraVeiculos.Classes.Telas;
 
-List<VeiculoBase> listaVeiculos = new();
+TelaMenuPrincipal telaMenuPrincipal = new();
+Repositorio listaDeVeiculos = new();
 
-Caminhao caminhao = new Caminhao("Ferrari", "Grande", 2000, 10000, "Muito Pesado");
-listaVeiculos.Add(caminhao);
-
-Caminhonete caminhonete = new Caminhonete("Mustang", "Fusca", 1990, 14000, "Carga Leve");
-listaVeiculos.Add(caminhonete);
-
-Utilitario skate = new Utilitario("Santa Cruz", "Tradicional", 2026, 1200, "Skate sla");
-listaVeiculos.Add(skate);
-
-Automovel carro = new Automovel("Fiat", "Tung Tung", 2015, 4000, 4);
-listaVeiculos.Add(carro);
-
-foreach (VeiculoBase v in listaVeiculos)
+while (true)
 {
-    System.Console.WriteLine(v.ListarDados());
+    //Seleciona a tela que o usuario quer visualizar
+
+    string? opcaoMenuPrincipal = telaMenuPrincipal.ApresentarDadosMenuPrincipal();
+
+    while (true)
+    {
+
+        if (opcaoMenuPrincipal == "1")
+        {
+            //Cadastrar Veiculos
+            VeiculoBase? veiculo = telaMenuPrincipal.SelecionarVeiculo();
+
+            if (veiculo == null)
+            {
+                Console.Clear();
+                break;
+            }
+            // Maior polimorfismo já existente, todos os objetos implementam o metodo Cadastrar da sua maneira 
+            // e retornam ELES MESMOS na funcao para o cadastro
+
+            listaDeVeiculos.Adicionar(veiculo.Cadastrar());
+
+        }
+        else if (opcaoMenuPrincipal == "2")
+        {
+            //Listar todos os veiculos usando polimorfismo dentro do metodo do repositorio
+            listaDeVeiculos.ListarTodos();
+            break;
+
+        }
+        else if (opcaoMenuPrincipal == "3")
+        {
+            //Listar veiculos especificos
+            Type? tipoEscolhido = TelaMenuPrincipal.EscolherTipo("Escolha um tipo para LISTAR:");
+
+            if (tipoEscolhido == null)
+                break;
+
+            var listaFiltrada = listaDeVeiculos.FiltrarPorTipo(tipoEscolhido);
+
+            foreach (var v in listaFiltrada)
+            {
+                Console.WriteLine(v.ListarDados());
+            }
+            Console.ReadLine();
+        }
+    }
 }
-Console.ReadLine();
+
