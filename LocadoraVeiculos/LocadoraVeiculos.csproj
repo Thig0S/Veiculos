@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Classes\Carga\" />
+    <Folder Include="Classes\Misto\" />
     <Folder Include="Classes\Passageiro\" />
   </ItemGroup>
 

@@ -2,9 +2,18 @@ using System;
 
 namespace LocadoraVeiculos.Classes.ClassesBases;
 
-public class DeMisto : VeiculoBase
+public abstract class DeMisto : VeiculoBase
 {
     public string? Outro { get; set; }
+
+    public DeMisto()
+    {
+
+    }
+    public DeMisto(string marca, string modelo, int ano, decimal valor, string outro) : base(marca, modelo, ano, valor)
+    {
+        Outro = outro;
+    }
 
     public override void Cadastrar(VeiculoBase v)
     {
@@ -13,6 +22,6 @@ public class DeMisto : VeiculoBase
 
     public override string ListarDados()
     {
-        throw new NotImplementedException();
+        return $"Tipo: utilitario, Marca: {Marca}, Modelo{Modelo}, Ano: {Ano}, Valor: R${Valor}, Outros: {Outro}";
     }
 }
